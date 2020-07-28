@@ -39,7 +39,7 @@ void loop (char c[3][3]){
 	 j=ganador(c);
 	 i++;
 		
-	}while(i < 9 and j==2);
+	}while(i <=8 and j==2);
 	if(j==0)
 	{
 		cout<<"Has ganado felicidades"<<endl;
@@ -218,20 +218,10 @@ int ganador(char c[3][3]){
 				return 1;//He perdido
 			}
 		}
-		if(c[0][0]==c[1][1] and c[0][0]==c[2][2])
-		{
-			if(c[0][0]=='X')
-			{
-				return 0;//He ganado
-			}
-			else{
-				return 1;//He perdido
-			}
-		}
 	}
-	else if(c[1][1]=='X' or c[1][1]=='O')
+	if(c[1][1]=='X' or c[1][1]=='O')
 	{
-		if(c[1][1]==c[1][0] and c[1][1]==c[1][2])
+		if(c[1][1]==c[0][0] and c[1][1]==c[2][2])
 		{
 			if(c[1][1]=='X')
 			{
@@ -241,7 +231,7 @@ int ganador(char c[3][3]){
 				return 1;//He perdido
 			}
 		}
-		if(c[1][1]==c[0][1] and c[1][1]==c[2][1])
+		if(c[1][1]==c[1][0] and c[1][1]==c[1][2])
 		{
 			if(c[1][1]=='X')
 			{
@@ -261,11 +251,22 @@ int ganador(char c[3][3]){
 				return 1;//He perdido
 			}
 		}
+		if(c[1][1]==c[0][1] and c[1][1]==c[2][1])
+		{
+			if(c[1][1]=='X')
+			{
+				return 0;//He ganado
+			}
+			else{
+				return 1;//He perdido
+			}
+		}
+		
 		
 	}
-	else if(c[2][2]=='X' or c[2][2]=='O')
+	if(c[2][2]=='X' or c[2][2]=='O')
 	{
-		if(c[2][2]==c[2][1] and c[2][2]==c[2][0])
+		if(c[2][2]==c[2][0] and c[2][2]==c[2][1])
 		{
 			if(c[2][2]=='X')
 			{
@@ -275,7 +276,7 @@ int ganador(char c[3][3]){
 				return 1;//He perdido
 			}
 		}
-		if(c[2][2]==c[1][2] and c[2][2]==c[0][2])
+		if(c[2][2]==c[0][2] and c[2][2]==c[1][2])
 		{
 			if(c[2][2]=='X')
 			{
